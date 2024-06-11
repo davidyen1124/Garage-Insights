@@ -47,7 +47,7 @@ def fetch_history():
         "no_attributes": "true",
         "significant_changes_only": "true"
     }
-    response = requests.get(url, headers=headers, params=params)
+    response = requests.get(url, headers=headers, params=params, timeout=10)
     response.raise_for_status()
 
     # Return the JSON response
