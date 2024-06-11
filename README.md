@@ -73,24 +73,37 @@ Setting Up Google Drive Integration
 pip install -r requirements.txt
 ```
 
-4. Run the Script
-   Execute the script to fetch data, process it, and upload the visualizations:
+4. Run the Daily Spreadsheet Script
+   Execute the script to fetch data and upload it to Google Spreadsheet:
 
 ```bash
-python analysis.py
+python generate_daily_spreadsheet.py
 ```
 
-5. (Optional) Automate with Cron Job
-   To run the script periodically, you can set up a cron job. Open the cron job editor:
+5. Run the Weekly Chart Script
+   Execute the script to generate and upload the weekly data chart:
+
+```bash
+python generate_weekly_chart.py
+```
+
+6. (Optional) Automate with Cron Job
+   To run the scripts periodically, you can set up a cron job. Open the cron job editor:
 
 ```bash
 crontab -e
 ```
 
-Add the following line to schedule the script (e.g., to run daily at midnight):
+Add the following line to schedule the daily spreadsheet script (e.g., to run daily at midnight):
 
 ```bash
-0 0 * * * /usr/bin/python3 /path/to/your/project/analysis.py
+0 0 * * * /usr/bin/python3 /path/to/your/project/generate_daily_spreadsheet.py
+```
+
+And add the following line to schedule the weekly chart script (e.g., to run every Sunday at midnight):
+
+```bash
+0 0 * * 0 /usr/bin/python3 /path/to/your/project/generate_weekly_chart.py
 ```
 
 ## License
